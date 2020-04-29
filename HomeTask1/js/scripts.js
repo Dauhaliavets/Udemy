@@ -12,9 +12,12 @@ let appData = {
     savings: false,
 };
 
-let expenseItem = prompt("Введите обязательную статью расходов в этом месяце", "");
-let cost = +prompt("Во сколько обойдется", "");
+let expenseItem1 = prompt("Введите обязательную статью расходов в этом месяце", "");
+let cost1 = +prompt("Во сколько обойдется", "");
+let expenseItem2 = prompt("Введите обязательную статью расходов в этом месяце", "");
+let cos2t = +prompt("Во сколько обойдется", "");
 
-appData.expenses[expenseItem] = cost;
+appData.expenses[expenseItem1] = cost1;
+appData.expenses[expenseItem2] = cost2;
 
 alert(`Ваш бюджет на 1 день: ${appData.budget / 30}`);
