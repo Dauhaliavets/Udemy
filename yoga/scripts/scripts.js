@@ -37,7 +37,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
     // =======================   Timer   =============================
 
-    let deadLine = '2020-05-06';
+    let deadLine = '2020-05-07';
 
     function getTimeRemsining(endtime) {
         let t = Date.parse(endtime) - Date.parse(new Date()),
@@ -92,4 +92,36 @@ window.addEventListener('DOMContentLoaded', function() {
     }
 
     setClock('timer', deadLine);
+
+    // ============   Modal   =========
+    let more = document.querySelector('.more'),
+        overlay = document.querySelector('.overlay'),
+        close = document.querySelector('.popup-close');
+
+    more.addEventListener('click', function() {
+        overlay.style.display = 'block';
+        this.classList.add('more-splash');
+        document.body.style.overflow = 'hidden';
+    });
+
+    close.addEventListener('click', function() {
+        overlay.style.display = 'none';
+        more.classList.remove('more-splash');
+        document.body.style.overflow = '';
+    });
+
+    //  Функция вызова модального окна в табах
+    function showModal () {
+        overlay.style.display = 'block';
+        this.classList.add('more-splash');
+        document.body.style.overflow = 'hidden';
+    }
+    // Получаем массив элементов с классом .description-btn
+    let descriptionBtn = document.querySelectorAll('.description-btn');
+    // Перебираем данный массив, назначая каждому элементу обработчик события click,
+    // который по клику вызываем функцию showModal
+    descriptionBtn.forEach(btn => {
+        btn.addEventListener('click', showModal);
+    });
+
 });
